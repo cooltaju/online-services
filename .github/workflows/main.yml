@@ -1,0 +1,33 @@
+name: Scrape and Update Vacancies
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at 00:00 UTC
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' # Use the latest Python 3
+
+    - name: Install dependencies
+      run: pip install -r online-services/requirements.txt
+
+    - name: Run scraper
+      run: python online-services/scraper.py
+
+    - name: Commit and push if changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add online-services/vacancies.json
+        git diff --staged --quiet || git commit -m "Automated: Update vacancies.json"
+        git push
