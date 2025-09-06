@@ -79,3 +79,11 @@ header p.lead {
     height: 3rem;
     color: #007bff;
 }
+
+/* Job logo styling */
+.job-logo {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}

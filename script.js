@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 accordionItem.innerHTML = `
                     <h2 class="accordion-header" id="heading${container.id}-${index}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${container.id}-${index}" aria-expanded="false" aria-controls="collapse${container.id}-${index}">
-                            <strong>${job.title}</strong>
+                            ${job.logo ? `<img src="${job.logo}" alt="Logo" class="job-logo me-2">` : ''}<strong>${job.title}</strong>
                         </button>
                     </h2>
                     <div id="collapse${container.id}-${index}" class="accordion-collapse collapse" aria-labelledby="heading${container.id}-${index}" data-bs-parent="#${container.id}Accordion">

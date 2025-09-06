@@ -33,9 +33,11 @@ def scrape_psc():
                     vacancies.append({
                         "title": title,
                         "documents": "कृपया विस्तृत जानकारी के लिए अधिसूचना (notification) देखें।",
-                        "link": href
-                    })
-                    logging.info(f"Found vacancy: {title}")
+                        "link": href,
+                            "logo": "https://via.placeholder.com/20x20?text=PSC" # Placeholder logo
+                        }
+                        vacancies.append(vacancy_data)
+                        logging.info(f"Found potential vacancy: {title}")
         else:
             logging.warning("Could not find main notification block (style209).")
 
