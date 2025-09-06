@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid #e9ecef;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+}
